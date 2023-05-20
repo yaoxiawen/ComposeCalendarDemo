@@ -1,0 +1,63 @@
+[versions]
+androidxComposeBom = "2023.05.01"
+
+[libraries]
+### <Compose 版本目录> https://developer.android.com/jetpack/compose/setup || https://androidx.tech/
+# compose BoM
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+# Choose one of the following:
+# Material Design 3
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+# or Material Design 2
+compose-material = { group = "androidx.compose.material", name = "material" }
+# or skip Material Design and build directly on top of foundational components
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+# or only import the main APIs for the underlying toolkit systems,
+# such as input and measurement/layout
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+
+# Android Studio Preview support
+compose-tool-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-ui-tool = { group = 'androidx.compose.ui', name = "ui-tooling" }
+
+# UI Tests
+compose-ui-junit4 = { group = 'androidx.compose.ui', name = "ui-tooling" }
+compose-ui-test = { group = 'androidx.compose.ui', name = "ui-test-manifest" }
+
+# Optional - Included automatically by material, only add when you need
+# the icons but not the material library (e.g. when using Material3 or a
+# custom design system based on Foundation)
+compose-icons = { group = "androidx.compose.material", name = "material-icons-core" }
+# Optional - Add full set of material icons
+compose-icons-ext = { group = "androidx.compose.material", name = "material-icons-extended" }
+# Optional - Add window size utils
+compose-window-size = { group = "androidx.compose.material3", name = "material3-window-size-class" }
+
+# anim
+compose-anim = { group = "androidx.compose.animation", name = "animation" }
+# rumtime
+compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+# Optional - Integration with LiveData
+compose-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata" }
+# 如需嵌入 XML 布局，请使用 androidx.compose.ui:ui-viewbinding 库提供的 AndroidViewBinding API。为此，您的项目必须启用视图绑定。
+compose-ui-viewbinding = { group = 'androidx.compose.ui', name = "ui-viewbinding" }
+
+# compose的一些扩展库 不在BoM物料清单中 版本号要单独写
+# Optional - Integration with activities
+compose-activity = { group = 'androidx.activity', name = "activity-compose", version = "1.7.1" }
+# Optional - Integration with ViewModels
+compose-viewmodel = { group = 'androidx.lifecycle', name = "lifecycle-viewmodel-compose", version = "2.6.1" }
+# 使用Constraint{}进行布局
+compose-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version = "1.0.1" }
+# compose的flexbox布局
+compose-flow-layouts = { group = "com.google.accompanist", name = "accompanist-flowlayout", version = "0.25.0" }
+### <Compose 版本目录/>
+
+#coil compose加载网络图片
+coil = { group = 'io.coil-kt', name = "coil", version = "2.2.2" }
+coil-compose = { group = 'io.coil-kt', name = "coil-compose", version = "2.2.2" }
+
+[bundles]
+compose = ["compose-ui", "compose-tool-preview", "compose-foundation", "compose-anim", "compose-runtime", "compose-runtime-livedata", "compose-activity", "compose-viewmodel", "compose-icons", "compose-icons-ext", "compose-material3", "compose-constraintlayout", "compose-flow-layouts"]
+composeDebug = ["compose-ui-tool", "compose-ui-test"]
+coil = ["coil", "coil-compose"]
